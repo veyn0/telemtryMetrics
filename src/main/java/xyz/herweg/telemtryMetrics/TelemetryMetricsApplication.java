@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TelemtryMetricsApplication {
+public class TelemetryMetricsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TelemtryMetricsApplication.class, args);
+        SpringApplication.run(TelemetryMetricsApplication.class, args);
     }
 
 }
