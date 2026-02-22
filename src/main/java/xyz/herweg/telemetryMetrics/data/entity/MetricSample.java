@@ -1,4 +1,4 @@
-package xyz.herweg.telemtryMetrics.data.entity;
+package xyz.herweg.telemetryMetrics.data.entity;
 
 import jakarta.persistence.*;
 

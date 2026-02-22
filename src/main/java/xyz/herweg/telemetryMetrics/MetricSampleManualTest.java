@@ -1,10 +1,10 @@
-package xyz.herweg.telemtryMetrics;
+package xyz.herweg.telemetryMetrics;
 
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import xyz.herweg.telemtryMetrics.data.entity.MetricSample;
-import xyz.herweg.telemtryMetrics.data.repository.MetricSampleRepository;
+import xyz.herweg.telemetryMetrics.data.entity.MetricSample;
+import xyz.herweg.telemetryMetrics.data.repository.MetricSampleRepository;
 
 import java.time.Instant;
 import java.util.List;

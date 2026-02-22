@@ -1,7 +1,7 @@
-package xyz.herweg.telemtryMetrics.data.repository;
+package xyz.herweg.telemetryMetrics.data.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import xyz.herweg.telemtryMetrics.data.entity.MetricSample;
+import xyz.herweg.telemetryMetrics.data.entity.MetricSample;
 
 import java.time.Instant;
 import java.util.List;

@@ -1,4 +1,4 @@
-package xyz.herweg.telemtryMetrics;
+package xyz.herweg.telemetryMetrics;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

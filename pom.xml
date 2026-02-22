@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>xyz.herweg</groupId>
-    <artifactId>telemtryMetrics</artifactId>
+    <artifactId>telemetryMetrics</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>telemtryMetrics</name>
-    <description>telemtryMetrics</description>
+    <name>telemetryMetrics</name>
+    <description>telemetryMetrics</description>
     <url/>
     <licenses>
         <license/>
