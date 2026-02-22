@@ -15,16 +15,16 @@ import java.util.UUID;
 public class MetricSample {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @GeneratedValue
     private UUID id;
 
-    @Column(name = "service_id", nullable = false)
+    @Column(nullable = false)
     private UUID serviceId;
 
-    @Column(name = "timestamp", nullable = false)
+    @Column(nullable = false)
     private Instant timestamp;
 
-    @Column(name = "value", nullable = false)
+    @Column(nullable = false)
     private double value;
 
     protected MetricSample() {}
