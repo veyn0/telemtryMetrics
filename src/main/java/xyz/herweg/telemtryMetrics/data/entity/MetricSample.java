@@ -1,6 +1,8 @@
 package xyz.herweg.telemtryMetrics.data.entity;
 
 import jakarta.persistence.*;
+
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -20,14 +22,14 @@ public class MetricSample {
     private UUID serviceId;
 
     @Column(name = "timestamp", nullable = false)
-    private double timestamp;
+    private Instant timestamp;
 
     @Column(name = "value", nullable = false)
     private double value;
 
     protected MetricSample() {}
 
-    public MetricSample(UUID id, UUID serviceId, double timestamp, double value) {
+    public MetricSample(UUID id, UUID serviceId, Instant timestamp, double value) {
         this.id = id;
         this.serviceId = serviceId;
         this.timestamp = timestamp;
@@ -36,6 +38,6 @@ public class MetricSample {
 
     public UUID getId() { return id; }
     public UUID getServiceId() { return serviceId; }
-    public double getTimestamp() { return timestamp; }
+    public Instant getTimestamp() { return timestamp; }
     public double getValue() { return value; }
 }
