@@ -1,32 +1,99 @@
-Project telemetry_metrics {
-  database_type: 'MariaDB'
-  Note: 'Telemetry Metrics'
-}
+  Project telemetry_metrics {
+    database_type: 'MariaDB'
+    Note: 'Telemetry Metrics'
+  }
 
-Table telemetry_metric_sample {
-  id char(36) [primary key]
-  service_id char(36)
-  timestamp datetime
-  value double
-}
+  Table telemetry_metric_sample {
+    id char(36) [primary key]
+    service_id char(36)
+    timestamp datetime
+    value double
+  }
 
-Table telemetry_service {
-  id char(36) [primary key]
-  system_id char(36)
-  category_id char(36)
-  name varchar(255)
-  created_at datetime
-}
+  Table telemetry_service {
+    id char(36) [primary key]
+    system_id char(36)
+    category_id char(36)
+    name varchar(255)
+    created_at datetime
+  }
 
-Table telemetry_service_category {
-  id char(36) [primary key]
-  name varchar(255)
-}
+  Table telemetry_service_category {
+    id char(36) [primary key]
+    name varchar(255)
+  }
 
-Table telemetry_system {
-  id char(36) [primary key]
-}
+  Table telemetry_system {
+    id char(36) [primary key]
+    name varchar(255)
+  }
 
-Ref telemetry_service_samples: telemetry_metric_sample.service_id > telemetry_service.id
-Ref telemetry_service_system: telemetry_service.system_id > telemetry_system.id
-Ref telemetry_service_category: telemetry_service.category_id > telemetry_service_category.id
+  Table telemetry_status_pages{
+    id char(36) [primary key]
+    name varchar(255)
+  }
+
+  Table telemetry_status_page_widgets {
+    id char(36) [primary key]
+    graph_id char(36)
+  }
+
+  Table telemetry_status_page_graph_tooltips{
+    id char(36) [primary key]
+    widget_id char(36)
+    graph_id char(36)
+  }
+
+  Table telemetry_status_page_graphs{
+    id char(36) [primary key] 
+    datasource_id char(36)
+    name varchar(255)
+  }
+
+  Table telemetry_status_page_datasources{
+    id char(36) [primary key]
+    type enum('RAW','COMPOSED')
+    service_id char(36) [null]
+    composition_type enum('ADD', 'AVERAGE') [null]
+  }
+
+  Table telemetry_status_page_datasource_composition {
+    id char(36) [primary key]
+    datasource_id char(36)
+    service_id char(36)
+  }
+
+  Table telemetry_status_page_layouts{
+    id char(36) [primary key]
+    widget_id char(36)
+    status_page_id char(36)
+    pos_x integer
+    pos_y integer
+    from_time datetime
+    to_time datetime
+    graph_style integer
+  }
+
+  Ref telemetry_service_samples: telemetry_metric_sample.service_id > telemetry_service.id
+  Ref telemetry_service_system: telemetry_service.system_id > telemetry_system.id
+  Ref telemetry_service_category: telemetry_service.category_id > telemetry_service_category.id
+
+  Ref: "telemetry_status_pages"."id" < "telemetry_status_page_layouts"."status_page_id"
+
+  Ref: "telemetry_status_page_widgets"."id" < "telemetry_status_page_layouts"."widget_id"
+
+  Ref: "telemetry_status_page_graphs"."id" < "telemetry_status_page_widgets"."graph_id"
+
+  Ref: "telemetry_status_page_widgets"."id" < "telemetry_status_page_graph_tooltips"."widget_id"
+
+  Ref: "telemetry_status_page_graphs"."id" < "telemetry_status_page_graph_tooltips"."graph_id"
+
+  Ref: "telemetry_status_page_graphs"."datasource_id" < "telemetry_status_page_datasources"."id"
+
+  Ref: "telemetry_service"."id" < "telemetry_status_page_datasources"."service_id"
+
+
+
+Ref: "telemetry_status_page_datasources"."id" < "telemetry_status_page_datasource_composition"."datasource_id"
+
+Ref: "telemetry_service"."id" < "telemetry_status_page_datasource_composition"."datasource_id"
