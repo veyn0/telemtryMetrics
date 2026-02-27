@@ -1,4 +1,4 @@
-package xyz.herweg.telemetryMetrics.data.entity;
+package xyz.herweg.telemetryMetrics.data.entity.statuspage;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.util.UUID;
 
 @Entity
-public class TelemetrySystem {
+public class TelemetryStatusPage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -16,10 +16,10 @@ public class TelemetrySystem {
 
     private String name;
 
-    protected TelemetrySystem() {
+    protected TelemetryStatusPage() {
     }
 
-    public TelemetrySystem(String name) {
+    public TelemetryStatusPage(String name) {
         this.name = name;
     }
 
