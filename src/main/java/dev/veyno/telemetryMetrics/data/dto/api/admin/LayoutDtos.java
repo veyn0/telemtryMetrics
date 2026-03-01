@@ -10,8 +10,9 @@ public final class LayoutDtos {
             UUID statusPageId,
             int posX,
             int posY,
-            Instant fromTime,
-            Instant toTime,
+            int scaleX,
+            int scaleY,
+            int duration,
             int graphStyle
     ) {}
 
@@ -20,8 +21,9 @@ public final class LayoutDtos {
             UUID statusPageId,
             Integer posX,
             Integer posY,
-            Instant fromTime,
-            Instant toTime,
+            Integer scaleX,
+            Integer scaleY,
+            Integer duration,
             Integer graphStyle
     ) {}
 
@@ -31,8 +33,9 @@ public final class LayoutDtos {
             UUID statusPageId,
             int posX,
             int posY,
-            Instant fromTime,
-            Instant toTime,
+            int scaleX,
+            int scaleY,
+            int duration,
             int graphStyle
     ) {}
 }

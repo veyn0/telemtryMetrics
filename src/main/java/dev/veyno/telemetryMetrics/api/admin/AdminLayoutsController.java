@@ -35,8 +35,9 @@ public class AdminLayoutsController {
                         l.getStatusPageId(),
                         l.getPosX(),
                         l.getPosY(),
-                        l.getFromTime(),
-                        l.getToTime(),
+                        l.getScaleX(),
+                        l.getScaleY(),
+                        l.getDuration(),
                         l.getGraphStyle()
                 ))
                 .toList();
@@ -47,7 +48,7 @@ public class AdminLayoutsController {
         TelemetryStatusPageLayout l = repo.findById(id).orElseThrow();
         return new LayoutDtos.LayoutResponse(
                 l.getId(), l.getWidgetId(), l.getStatusPageId(),
-                l.getPosX(), l.getPosY(), l.getFromTime(), l.getToTime(), l.getGraphStyle()
+                l.getPosX(), l.getPosY(), l.getScaleX(), l.getScaleY(), l.getDuration(), l.getGraphStyle()
         );
     }
 
@@ -58,13 +59,16 @@ public class AdminLayoutsController {
                 req.statusPageId(),
                 req.posX(),
                 req.posY(),
-                req.fromTime(),
-                req.toTime(),
+                req.scaleX(),
+                req.scaleY(),
+                req.duration(),
                 req.graphStyle()
         ));
         return new LayoutDtos.LayoutResponse(
                 l.getId(), l.getWidgetId(), l.getStatusPageId(),
-                l.getPosX(), l.getPosY(), l.getFromTime(), l.getToTime(), l.getGraphStyle()
+                l.getPosX(), l.getPosY(),
+                l.getScaleX(), l.getScaleY(),
+                l.getDuration(), l.getGraphStyle()
         );
     }
 
@@ -76,13 +80,16 @@ public class AdminLayoutsController {
         if (req.statusPageId() != null) l.setStatusPageId(req.statusPageId());
         if (req.posX() != null) l.setPosX(req.posX());
         if (req.posY() != null) l.setPosY(req.posY());
-        if (req.fromTime() != null) l.setFromTime(req.fromTime());
-        if (req.toTime() != null) l.setToTime(req.toTime());
+        if (req.scaleX() != null) l.setScaleX(req.scaleX());
+        if (req.scaleY() != null) l.setScaleY(req.scaleY());
+        if (req.duration() != null) l.setDuration(req.duration());
         if (req.graphStyle() != null) l.setGraphStyle(req.graphStyle());
 
         return new LayoutDtos.LayoutResponse(
                 l.getId(), l.getWidgetId(), l.getStatusPageId(),
-                l.getPosX(), l.getPosY(), l.getFromTime(), l.getToTime(), l.getGraphStyle()
+                l.getPosX(), l.getPosY(),
+                l.getScaleX(), l.getScaleY(),
+                l.getDuration(), l.getGraphStyle()
         );
     }
 

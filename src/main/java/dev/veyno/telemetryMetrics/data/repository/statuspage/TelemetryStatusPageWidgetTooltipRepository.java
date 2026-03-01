@@ -11,4 +11,6 @@ public interface TelemetryStatusPageWidgetTooltipRepository extends JpaRepositor
     List<TelemetryStatusPageWidgetTooltip> findByWidgetId(UUID widgetId);
 
     List<TelemetryStatusPageWidgetTooltip> findByGraphId(UUID graphId);
+
+    List<TelemetryStatusPageWidgetTooltip> findByWidgetIdIn(List<UUID> widgetIds);
 }

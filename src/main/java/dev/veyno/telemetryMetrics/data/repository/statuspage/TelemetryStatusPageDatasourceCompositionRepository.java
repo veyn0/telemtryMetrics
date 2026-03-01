@@ -10,4 +10,5 @@ public interface TelemetryStatusPageDatasourceCompositionRepository
         extends JpaRepository<TelemetryStatusPageDatasourceComposition, UUID> {
 
     List<TelemetryStatusPageDatasourceComposition> findByDatasourceId(UUID datasourceId);
+
 }

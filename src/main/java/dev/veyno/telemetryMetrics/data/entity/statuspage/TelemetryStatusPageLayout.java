@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 
 import java.time.Instant;
 import java.util.UUID;
-
 @Entity
 public class TelemetryStatusPageLayout {
 
@@ -21,8 +20,10 @@ public class TelemetryStatusPageLayout {
     private int posX;
     private int posY;
 
-    private Instant fromTime;
-    private Instant toTime;
+    private int scaleX;
+    private int scaleY;
+
+    private int duration;
 
     private int graphStyle;
 
@@ -34,80 +35,37 @@ public class TelemetryStatusPageLayout {
             UUID statusPageId,
             int posX,
             int posY,
-            Instant fromTime,
-            Instant toTime,
+            int scaleX,
+            int scaleY,
+            int duration,
             int graphStyle
     ) {
         this.widgetId = widgetId;
         this.statusPageId = statusPageId;
         this.posX = posX;
         this.posY = posY;
-        this.fromTime = fromTime;
-        this.toTime = toTime;
+        this.scaleX = scaleX;
+        this.scaleY = scaleY;
+        this.duration = duration;
         this.graphStyle = graphStyle;
     }
 
-    public UUID getId() {
-        return id;
-    }
+    public UUID getId() { return id; }
+    public UUID getWidgetId() { return widgetId; }
+    public UUID getStatusPageId() { return statusPageId; }
+    public int getPosX() { return posX; }
+    public int getPosY() { return posY; }
+    public int getScaleX() { return scaleX; }
+    public int getScaleY() { return scaleY; }
+    public int getDuration() { return duration; }
+    public int getGraphStyle() { return graphStyle; }
 
-    public UUID getWidgetId() {
-        return widgetId;
-    }
-
-    public UUID getStatusPageId() {
-        return statusPageId;
-    }
-
-    public int getPosX() {
-        return posX;
-    }
-
-    public int getPosY() {
-        return posY;
-    }
-
-    public Instant getFromTime() {
-        return fromTime;
-    }
-
-    public Instant getToTime() {
-        return toTime;
-    }
-
-    public int getGraphStyle() {
-        return graphStyle;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public void setWidgetId(UUID widgetId) {
-        this.widgetId = widgetId;
-    }
-
-    public void setStatusPageId(UUID statusPageId) {
-        this.statusPageId = statusPageId;
-    }
-
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-
-    public void setPosY(int posY) {
-        this.posY = posY;
-    }
-
-    public void setFromTime(Instant fromTime) {
-        this.fromTime = fromTime;
-    }
-
-    public void setToTime(Instant toTime) {
-        this.toTime = toTime;
-    }
-
-    public void setGraphStyle(int graphStyle) {
-        this.graphStyle = graphStyle;
-    }
+    public void setWidgetId(UUID widgetId) { this.widgetId = widgetId; }
+    public void setStatusPageId(UUID statusPageId) { this.statusPageId = statusPageId; }
+    public void setPosX(int posX) { this.posX = posX; }
+    public void setPosY(int posY) { this.posY = posY; }
+    public void setScaleX(int scaleX) { this.scaleX = scaleX; }
+    public void setScaleY(int scaleY) { this.scaleY = scaleY; }
+    public void setDuration(int duration) { this.duration = duration; }
+    public void setGraphStyle(int graphStyle) { this.graphStyle = graphStyle; }
 }
